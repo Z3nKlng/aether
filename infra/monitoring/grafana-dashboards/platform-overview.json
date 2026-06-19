@@ -1,0 +1,22 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Aether Platform Overview",
+    "panels": [
+      {
+        "title": "API Request Rate",
+        "type": "graph",
+        "targets": [
+          { "expr": "rate(http_requests_total[5m])" }
+        ]
+      },
+      {
+        "title": "Agent Execution Success Rate",
+        "type": "graph",
+        "targets": [
+          { "expr": "sum(rate(agent_tasks_success[5m])) / sum(rate(agent_tasks_total[5m]))" }
+        ]
+      }
+    ]
+  }
+}

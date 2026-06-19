@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "aether.fullname" . }}-default-deny
+  labels:
+    {{- include "aether.labels" . | nindent 4 }}
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "aether.fullname" . }}-allow-internal
+  labels:
+    {{- include "aether.labels" . | nindent 4 }}
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              {{- include "aether.selectorLabels" . | nindent 14 }}
+  policyTypes:
+    - Ingress

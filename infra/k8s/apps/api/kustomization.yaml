@@ -1,0 +1,11 @@
+resources:
+  - ../../base/service-template.yaml
+
+nameOverride: api
+commonLabels:
+  app: api
+
+images:
+  - name: aether-service
+    newName: aether/api
+    newTag: latest

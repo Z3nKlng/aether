@@ -1,0 +1,25 @@
+{
+  "name": "@aether/context-engine",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "@aether/model-router": "workspace:*",
+    "glob": "^10.3.12",
+    "tree-sitter": "^0.21.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  }
+}

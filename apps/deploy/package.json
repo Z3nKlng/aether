@@ -1,0 +1,27 @@
+{
+  "name": "deploy",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aether/database": "workspace:*",
+    "dockerode": "^4.0.2",
+    "express": "^5.2.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/dockerode": "^3.3.34",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.1",
+    "@types/uuid": "^9.0.8",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}

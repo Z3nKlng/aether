@@ -1,0 +1,10 @@
+{
+  "name": "@aether/market-research-agent",
+  "version": "1.2.0",
+  "description": "Competitor monitoring, market trends, opportunity discovery, competitive intelligence",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": { "test": "echo 'no tests'", "typecheck": "tsc --noEmit" },
+  "dependencies": { "@aether/types": "workspace:*" },
+  "publishConfig": { "access": "public" }
+}

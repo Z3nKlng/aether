@@ -1,0 +1,20 @@
+groups:
+  - name: aether-alerts
+    rules:
+      - alert: HighApiErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High API Error Rate on {{ $labels.instance }}"
+          description: "API error rate is above 5% for more than 2 minutes."
+
+      - alert: AgentExecutionFailure
+        expr: rate(agent_tasks_failed[5m]) > 1
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Agent Task Failures detected"
+          description: "Multiple agent tasks are failing in the last 5 minutes."

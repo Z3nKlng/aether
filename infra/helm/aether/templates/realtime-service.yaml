@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "aether.fullname" . }}-realtime
+  labels:
+    {{- include "aether.labels" . | nindent 4 }}
+    app.kubernetes.io/component: realtime
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.realtime.service.port }}
+      targetPort: {{ .Values.realtime.service.port }}
+      protocol: TCP
+      name: ws
+  selector:
+    {{- include "aether.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: realtime

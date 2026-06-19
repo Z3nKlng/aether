@@ -1,0 +1,27 @@
+{
+  "name": "@aether/agent-runtime",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "@aether/model-router": "workspace:*",
+    "@aether/git-integration": "workspace:*",
+    "events": "^3.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7",
+    "@types/uuid": "^9.0.8"
+  }
+}

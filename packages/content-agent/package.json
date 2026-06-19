@@ -1,0 +1,10 @@
+{
+  "name": "@aether/content-agent",
+  "version": "1.2.0",
+  "description": "Creates blog posts, social media content, newsletters, educational content, manages content calendar and publishing",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": { "test": "echo 'no tests'", "typecheck": "tsc --noEmit" },
+  "dependencies": { "@aether/types": "workspace:*" },
+  "publishConfig": { "access": "public" }
+}

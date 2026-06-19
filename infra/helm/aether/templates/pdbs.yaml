@@ -1,0 +1,16 @@
+{{- range $service := list "api" "web" "realtime" }}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "aether.fullname" $ }}-{{ $service }}
+  labels:
+    {{- include "aether.labels" $ | nindent 4 }}
+    app.kubernetes.io/component: {{ $service }}
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      {{- include "aether.selectorLabels" $ | nindent 6 }}
+      app.kubernetes.io/component: {{ $service }}
+{{- end }}

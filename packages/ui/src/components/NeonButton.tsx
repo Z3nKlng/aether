@@ -1,0 +1,54 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { cn } from "../utils";
+import { Loader2 } from "lucide-react";
+
+interface NeonButtonProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  type?: "button" | "submit";
+  disabled?: boolean;
+  loading?: boolean;
+  "aria-label"?: string;
+}
+
+export const NeonButton = ({ 
+  children, 
+  className, 
+  onClick, 
+  type = "button",
+  disabled = false,
+  loading = false,
+  ...props 
+}: NeonButtonProps) => {
+  return (
+    <motion.button
+      whileHover={!disabled ? { scale: 1.05 } : {}}
+      whileTap={!disabled ? { scale: 0.95 } : {}}
+      onClick={onClick}
+      type={type}
+      disabled={disabled || loading}
+      className={cn(
+        "px-6 py-2 rounded-full bg-transparent border border-neon-blue text-neon-blue font-medium",
+        "shadow-[0_0_15px_rgba(0,174,255,0.3)] hover:shadow-[0_0_25px_rgba(0,174,255,0.5)]",
+        "transition-all duration-300 relative overflow-hidden group",
+        "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
+        "focus-visible:outline-2 focus-visible:outline-neon-blue focus-visible:outline-offset-2",
+        className
+      )}
+      aria-disabled={disabled || loading}
+      {...props}
+    >
+      {/* Hover glow effect */}
+      <span className="absolute inset-0 bg-neon-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
+      
+      {/* Content */}
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        {loading && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
+        {children}
+      </span>
+    </motion.button>
+  );
+};

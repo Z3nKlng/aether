@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "aether.fullname" . }}-agent-worker
+  labels:
+    {{- include "aether.labels" . | nindent 4 }}
+    app.kubernetes.io/component: agent-worker
+spec:
+  replicas: {{ .Values.agentWorker.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "aether.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: agent-worker
+  template:
+    metadata:
+      labels:
+        {{- include "aether.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: agent-worker
+    spec:
+      serviceAccountName: {{ include "aether.fullname" . }}
+      containers:
+        - name: agent-worker
+          image: "{{ .Values.agentWorker.image.repository }}:{{ .Values.agentWorker.image.tag }}"
+          resources:
+            {{- toYaml .Values.agentWorker.resources | nindent 12 }}
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: REDIS_URL
+              value: "redis://{{ include "aether.fullname" . }}-redis:6379"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "aether.fullname" . }}-db-secret
+                  key: url

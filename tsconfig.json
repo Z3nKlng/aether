@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@aether/database": ["./packages/database/index.ts"],
+      "@aether/auth": ["./packages/auth/index.ts"],
+      "@aether/billing": ["./packages/billing/index.ts"],
+      "@aether/redis": ["./packages/redis/index.ts"],
+      "@aether/agent-runtime": ["./packages/agent-runtime/src/index.ts"],
+      "@aether/model-router": ["./packages/model-router/src/index.ts"],
+      "@aether/git-integration": ["./packages/git-integration/src/index.ts"],
+      "@aether/code-intelligence": ["./packages/code-intelligence/src/index.ts"],
+      "@aether/ci-cd": ["./packages/ci-cd/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

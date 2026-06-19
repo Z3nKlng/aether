@@ -1,0 +1,28 @@
+{
+  "name": "realtime",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fastify": "^5.8.5",
+    "@fastify/websocket": "^11.2.0",
+    "@aether/database": "workspace:*",
+    "@aether/redis": "workspace:*",
+    "yjs": "^13.6.30",
+    "lib0": "^0.2.117",
+    "@hocuspocus/server": "^4.1.0",
+    "@hocuspocus/transformer": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "@types/node": "^25.9.1"
+  }
+}

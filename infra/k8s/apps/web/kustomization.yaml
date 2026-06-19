@@ -1,0 +1,11 @@
+resources:
+  - ../../base/service-template.yaml
+
+nameOverride: web
+commonLabels:
+  app: web
+
+images:
+  - name: aether-service
+    newName: aether/web
+    newTag: latest

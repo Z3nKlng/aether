@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "aether.fullname" . }}-realtime
+  labels:
+    {{- include "aether.labels" . | nindent 4 }}
+    app.kubernetes.io/component: realtime
+spec:
+  replicas: {{ .Values.realtime.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "aether.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: realtime
+  template:
+    metadata:
+      labels:
+        {{- include "aether.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: realtime
+    spec:
+      containers:
+        - name: realtime
+          image: "{{ .Values.realtime.image.repository }}:{{ .Values.realtime.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.realtime.service.port }}
+          resources:
+            {{- toYaml .Values.realtime.resources | nindent 12 }}
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.realtime.service.port }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.realtime.service.port }}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "aether.fullname" . }}-realtime
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "aether.fullname" . }}-realtime
+  minReplicas: {{ .Values.realtime.hpa.minReplicas }}
+  maxReplicas: {{ .Values.realtime.hpa.maxReplicas }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70

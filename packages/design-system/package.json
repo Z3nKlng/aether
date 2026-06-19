@@ -1,0 +1,17 @@
+{
+  "name": "@aether/design-system",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "true",
+    "lint": "true"
+  },
+  "dependencies": {
+    "framer-motion": "^12.40.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

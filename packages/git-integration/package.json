@@ -1,0 +1,22 @@
+{
+  "name": "@aether/git-integration",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "lint": "eslint src/**/*.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "octokit": "^3.2.1",
+    "simple-git": "^3.24.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^6.0.3",
+    "vitest": "^1.6.0"
+  }
+}
