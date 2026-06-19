@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether | AI-Native Engineering Platform</title>
+  <meta name="description" content="Build entire companies with AI. The world's first autonomous engineering operating system.">
+  <meta property="og:title" content="Aether | AI-Native Engineering Platform">
+  <meta property="og:description" content="Build, deploy, and scale software from natural language.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23000'/><text x='16' y='22' text-anchor='middle' fill='%2300AEFF' font-family='system-ui' font-weight='bold' font-size='18'>A</text></svg>">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+    .bg-glow { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,174,255,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .scanline { position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,174,255,0.015) 2px, rgba(0,174,255,0.015) 4px); pointer-events: none; z-index: 100; }
+    .noise { position: fixed; inset: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events: none; z-index: 99; mix-blend-mode: overlay; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px; }
+    .hero h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
+    .hero h1 span { background: linear-gradient(135deg, #00AEFF, #60A5FA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: #a3a3a3; max-width: 600px; margin: 24px auto; line-height: 1.6; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,174,255,0.1); border: 1px solid rgba(0,174,255,0.2); border-radius: 100px; padding: 8px 20px; font-size: 14px; color: #00AEFF; margin-bottom: 32px; }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #00AEFF; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .btn-group { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { background: #00AEFF; color: #000; border: none; padding: 16px 40px; border-radius: 100px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; box-shadow: 0 0 20px rgba(0,174,255,0.3); }
+    .btn-primary:hover { box-shadow: 0 0 40px rgba(0,174,255,0.5); transform: scale(1.02); }
+    .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 16px 40px; border-radius: 100px; font-size: 18px; font-weight: 500; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+    /* Stats */
+    .stats { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+    .stat-value { font-size: 2.5rem; font-weight: 800; color: #00AEFF; }
+    .stat-label { font-size: 0.75rem; color: #737373; text-transform: uppercase; letter-spacing: 0.15em; font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
+    /* Features */
+    .features { padding: 120px 0; }
+    .section-title { text-align: center; margin-bottom: 80px; }
+    .section-title h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; }
+    .section-title p { color: #737373; margin-top: 16px; max-width: 500px; margin-inline: auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; backdrop-filter: blur(20px); transition: all 0.3s; }
+    .feature-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); transform: translateY(-4px); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(0,174,255,0.1); border: 1px solid rgba(0,174,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+    .feature-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+    .feature-card p { color: #a3a3a3; font-size: 0.875rem; line-height: 1.6; }
+    /* Pricing */
+    .pricing { padding: 120px 0; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pricing-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 40px; backdrop-filter: blur(20px); display: flex; flex-direction: column; }
+    .pricing-card.featured { border-color: rgba(0,174,255,0.3); background: rgba(0,174,255,0.05); }
+    .pricing-badge { display: inline-block; background: #00AEFF; color: #000; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .pricing-card h3 { font-size: 1.5rem; font-weight: 700; }
+    .pricing-card .price { font-size: 3rem; font-weight: 900; margin: 16px 0; letter-spacing: -0.03em; }
+    .pricing-card .price span { font-size: 1rem; font-weight: 400; color: #737373; }
+    .pricing-card .desc { color: #a3a3a3; font-size: 0.875rem; margin-bottom: 24px; }
+    .pricing-card ul { list-style: none; margin-bottom: 32px; flex: 1; }
+    .pricing-card ul li { padding: 8px 0; color: #d4d4d4; font-size: 0.875rem; display: flex; align-items: center; gap: 10px; }
+    .pricing-card ul li::before { content: "✓"; color: #00AEFF; font-weight: 700; }
+    .pricing-card .btn { width: 100%; padding: 14px; border-radius: 100px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; border: none; }
+    .pricing-card .btn-primary-custom { background: #00AEFF; color: #000; }
+    .pricing-card .btn-primary-custom:hover { box-shadow: 0 0 20px rgba(0,174,255,0.4); }
+    .pricing-card .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+    .pricing-card .btn-outline:hover { background: rgba(255,255,255,0.05); }
+    /* CTA */
+    .cta { padding: 120px 0; text-align: center; }
+    .cta-box { background: rgba(0,174,255,0.08); border: 1px solid rgba(0,174,255,0.2); border-radius: 32px; padding: 80px 40px; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: rgba(0,174,255,0.15); border-radius: 50%; filter: blur(80px); }
+    .cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; }
+    .cta p { color: #a3a3a3; max-width: 500px; margin: 0 auto 40px; }
+    /* Footer */
+    footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand .logo { display: flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 800; text-decoration: none; color: #fff; margin-bottom: 16px; }
+    .footer-brand .logo-icon { width: 32px; height: 32px; background: #00AEFF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #000; }
+    .footer-brand p { color: #737373; font-size: 0.875rem; line-height: 1.6; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; }
+    .footer-col a { display: block; color: #737373; text-decoration: none; font-size: 0.875rem; padding: 6px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #525252; flex-wrap: wrap; gap: 16px; }
+    .status { display: flex; align-items: center; gap: 8px; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="scanline"></div>
+  <div class="noise"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge"><div class="hero-badge-dot"></div> Now in Public Beta</div>
+    <h1>Build entire <br><span>companies</span> with AI.</h1>
+    <p>Aether is the world's first autonomous engineering operating system. Describe what you want — our agents build, deploy, and scale it.</p>
+    <div class="btn-group">
+      <a href="#" class="btn-primary">Start Building Free →</a>
+      <a href="#" class="btn-secondary">Watch Demo</a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div><div class="stat-value">50K+</div><div class="stat-label">Apps Deployed</div></div>
+        <div><div class="stat-value">1M+</div><div class="stat-label">Tasks Automated</div></div>
+        <div><div class="stat-value">500M+</div><div class="stat-label">Tokens Processed</div></div>
+        <div><div class="stat-value">99.9%</div><div class="stat-label">Uptime</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Everything you need to ship.</h2>
+        <p>Aether replaces your entire engineering stack with a unified, autonomous workforce.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Autonomous Agents</h3>
+          <p>A full engineering team in a browser. Planners, engineers, reviewers, testers, and DevOps agents that coordinate to ship products.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Browser IDE</h3>
+          <p>Monaco editor with real-time collaboration, terminal emulator, file explorer, and universal command palette.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>One-Click Deploy</h3>
+          <p>Preview and production deployments with SSL, CDN, custom domains, and instant rollbacks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Sandboxed Execution</h3>
+          <p>Secure Docker/Firecracker runtimes where agents code, debug, and test in isolation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Repo Intelligence</h3>
+          <p>Understands entire codebases, suggests refactors, generates docs, and opens PRs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Real-time Collab</h3>
+          <p>Work alongside AI agents in a real-time browser IDE. Watch them code in live-view.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>Simple, transparent pricing.</h2>
+        <p>Start for free, upgrade when you need more power.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="price">$0<span>/mo</span></div>
+          <p class="desc">Perfect for indie hackers and solo devs.</p>
+          <ul>
+            <li>Unlimited Projects</li>
+            <li>Unlimited Deployments</li>
+            <li>Community Agents</li>
+            <li>Standard Compute</li>
+            <li>Community Support</li>
+          </ul>
+          <button class="btn btn-outline">Start Building</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3>Pro</h3>
+          <div class="price">$29<span>/mo</span></div>
+          <p class="desc">For startups and growing teams.</p>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Priority Agent Queue</li>
+            <li>High-Perf GPUs</li>
+            <li>Private Repo Integration</li>
+            <li>24/7 Priority Support</li>
+          </ul>
+          <button class="btn btn-primary-custom">Go Pro</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <p class="desc">Dedicated infrastructure for scale.</p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>On-prem Deployment</li>
+            <li>SLA Guarantees</li>
+            <li>Custom Agent Training</li>
+            <li>Advanced Compliance</li>
+          </ul>
+          <button class="btn btn-outline">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-glow"></div>
+        <h2>Ready to build the future?</h2>
+        <p>Join 10,000+ developers building autonomous software with Aether. Start for free, deploy in minutes.</p>
+        <a href="#" class="btn-primary" style="display:inline-block">Initialize Your Workspace</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo"><div class="logo-icon">Æ</div> AETHER</a>
+          <p>The world's first autonomous engineering operating system. Build entire companies from a single prompt.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Changelog</a>
+          <a href="#">Docs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Aether Operations. All rights reserved.</span>
+        <div class="status"><div class="status-dot"></div> All Systems Operational</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
