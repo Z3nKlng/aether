@@ -28,7 +28,9 @@ export default function DashboardLayout({
   ];
 
   // Mock messages
-  const [messages, setMessages] = useState([
+  type Message = { id: string; role: "system" | "assistant" | "user"; content: string; timestamp: Date };
+
+const [messages, setMessages] = useState<Message[]>([
     { id: "1", role: "system" as const, content: "Aether workforce initialized.", timestamp: new Date() },
     { id: "2", role: "assistant" as const, content: "I've analyzed your repo. Ready to start building the authentication flow.", timestamp: new Date() },
   ]);

@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import { GlassCard, NeonButton } from "@aether/ui";
 import { useState } from "react";
-import { Github, Mail, Chrome, Disc as Discord, Apple, Loader2 } from "lucide-react";
+import { ExternalLink as Github, Mail, Globe as Chrome, Disc as Discord, Apple, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -15,9 +15,11 @@ const staggerContainer = {
   },
 };
 
-const fadeInUp = {
+import { Variants } from "framer-motion";
+
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 20, stiffness: 100 } },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, damping: 20, stiffness: 100 } },
 };
 
 const oauthProviders = [

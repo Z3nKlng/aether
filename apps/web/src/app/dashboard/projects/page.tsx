@@ -5,11 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Rocket, Plus, ExternalLink, Calendar, GitBranch } from "lucide-react";
 import Link from "next/link";
-import { useDashboardStore } from "@/store/use-dashboard-store";
+
+const mockProjects = [
+  { id: "1", name: "E-Commerce App", slug: "ecommerce-app", updatedAt: new Date().toISOString(), deployments: [{ status: "live", url: "https://ecommerce-app.vercel.app" }] },
+  { id: "2", name: "API Dashboard", slug: "api-dashboard", updatedAt: new Date().toISOString(), deployments: [{ status: "preview", url: "https://api-dashboard.vercel.app" }] },
+  { id: "3", name: "Mobile Backend", slug: "mobile-backend", updatedAt: new Date().toISOString(), deployments: [{ status: "building", url: "" }] },
+];
 
 export default function ProjectsPage() {
   const api = useApi();
-  const { projects: mockProjects } = useDashboardStore();
 
   // Use Query will fetch from real API when ready
   const { data: projects, isLoading } = useQuery({

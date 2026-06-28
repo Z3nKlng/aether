@@ -4,15 +4,11 @@
   "description": "Central coordinator that registers all agents, prioritizes tasks, allocates resources, resolves conflicts, monitors performance, balances workloads",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "scripts": { "test": "echo 'no tests'", "typecheck": "tsc --noEmit" },
-  "dependencies": {
-    "@aether/types": "workspace:*",
-    "@aether/operations-agent": "workspace:*",
-    "@aether/customer-success-agent": "workspace:*",
-    "@aether/analytics-agent": "workspace:*",
-    "@aether/product-improvement-agent": "workspace:*",
-    "@aether/content-agent": "workspace:*",
-    "@aether/market-research-agent": "workspace:*"
+  "scripts": {
+    "test": "echo 'no tests'",
+    "typecheck": "tsc --noEmit"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

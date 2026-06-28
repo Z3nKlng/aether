@@ -86,7 +86,7 @@ export default function AnalyticsPage() {
                 <button
                   key={t}
                   onClick={() => setFilter(t)}
-                  className={`px-3 py-1 rounded text-[10px] uppercase tracking-widest font-bold transition-all \${filter === t ? 'bg-white/10 text-white' : 'text-neutral-500 hover:text-neutral-300'}`}
+                  className={`px-3 py-1 rounded text-[10px] uppercase tracking-widest font-bold transition-all ${filter === t ? 'bg-white/10 text-white' : 'text-neutral-500 hover:text-neutral-300'}`}
                 >
                   {t}
                 </button>

@@ -61,11 +61,11 @@ export default function ExecutiveDashboard() {
               <div key={i} className="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
                 <motion.div 
                   initial={{ height: 0 }}
-                  animate={{ height: `\${val}%` }}
+                  animate={{ height: `${val}%` }}
                   className="w-full bg-gradient-to-t from-emerald-600/20 to-emerald-500 rounded-t-md relative"
                 >
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-white/10 text-[10px] px-1.5 py-0.5 rounded font-mono">
-                    \${val}k
+                    ${val}k
                   </div>
                 </motion.div>
                 <span className="text-[10px] text-neutral-500 font-mono rotate-[-45deg] md:rotate-0">{months[i]}</span>
@@ -92,11 +92,11 @@ export default function ExecutiveDashboard() {
                 </linearGradient>
               </defs>
               <path 
-                d={`M 0 100 \${acquisitionData.map((v, i) => `L \${(i / (acquisitionData.length - 1)) * 100} \${100 - v / 2}`).join(' ')} L 100 100 Z`}
+                d={`M 0 100 ${acquisitionData.map((v, i) => `L ${(i / (acquisitionData.length - 1)) * 100} ${100 - v / 2}`).join(' ')} L 100 100 Z`}
                 fill="url(#gradient-blue)"
               />
               <path 
-                d={`M 0 \${100 - acquisitionData[0] / 2} \${acquisitionData.map((v, i) => `L \${(i / (acquisitionData.length - 1)) * 100} \${100 - v / 2}`).join(' ')}`}
+                d={`M 0 ${100 - acquisitionData[0] / 2} ${acquisitionData.map((v, i) => `L ${(i / (acquisitionData.length - 1)) * 100} ${100 - v / 2}`).join(' ')}`}
                 fill="none"
                 stroke="#3b82f6"
                 strokeWidth="1"
@@ -124,8 +124,8 @@ export default function ExecutiveDashboard() {
           ].map((step, i) => (
             <div key={i} className="flex items-center gap-4">
               <div 
-                className={`h-12 \${step.color} rounded flex items-center justify-between px-6 transition-all duration-1000 ease-out`}
-                style={{ width: `\${Math.max(15, 100 - i * 15)}%` }}
+                className={`h-12 ${step.color} rounded flex items-center justify-between px-6 transition-all duration-1000 ease-out`}
+                style={{ width: `${Math.max(15, 100 - i * 15)}%` }}
               >
                 <span className="text-xs font-bold uppercase tracking-widest">{step.label}</span>
                 <span className="font-mono text-sm">{step.value}</span>
@@ -176,7 +176,7 @@ export default function ExecutiveDashboard() {
                     </span>
                   </td>
                   <td className="px-8 py-4 text-right">
-                    <span className={`text-xs font-bold \${row.prio === 'P0' ? 'text-red-500' : 'text-neutral-500'}`}>{row.prio}</span>
+                    <span className={`text-xs font-bold ${row.prio === 'P0' ? 'text-red-500' : 'text-neutral-500'}`}>{row.prio}</span>
                   </td>
                 </tr>
               ))}

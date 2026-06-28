@@ -4,16 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlassCard, NeonButton, Input, Label, Badge } from "@aether/ui";
 import { useRouter } from "next/navigation";
-import { 
-  Building2, 
-  Rocket, 
-  Sparkles, 
+import {
+  Building2,
+  Rocket,
+  Sparkles,
+  GitBranch as Github,
   ChevronRight, 
   Check, 
   Code, 
   Globe, 
   Database, 
-  Github, 
   Cpu,
   ArrowRight,
   Plus

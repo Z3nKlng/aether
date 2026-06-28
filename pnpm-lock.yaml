@@ -261,6 +261,8 @@ importers:
         specifier: ^4.1.7
         version: 4.1.8(@types/node@25.9.1)(vite@5.4.21(@types/node@25.9.1))
 
+  packages/analytics-agent: {}
+
   packages/api-client:
     dependencies:
       graphql:
@@ -360,6 +362,8 @@ importers:
         specifier: ^4.1.7
         version: 4.1.8(@types/node@25.9.1)(vite@5.4.21(@types/node@25.9.1))
 
+  packages/content-agent: {}
+
   packages/context-engine:
     dependencies:
       '@aether/model-router':
@@ -384,6 +388,8 @@ importers:
       vitest:
         specifier: ^4.1.7
         version: 4.1.8(@types/node@25.9.1)(vite@5.4.21(@types/node@25.9.1))
+
+  packages/customer-success-agent: {}
 
   packages/database:
     dependencies:
@@ -426,6 +432,10 @@ importers:
       vitest:
         specifier: ^1.6.0
         version: 1.6.1(@types/node@25.9.1)
+
+  packages/intelligence-layer: {}
+
+  packages/market-research-agent: {}
 
   packages/memory-system:
     dependencies:
@@ -480,6 +490,10 @@ importers:
         specifier: ^4.1.7
         version: 4.1.8(@types/node@25.9.1)(vite@5.4.21(@types/node@25.9.1))
 
+  packages/operations-agent: {}
+
+  packages/product-improvement-agent: {}
+
   packages/redis:
     dependencies:
       ioredis:
@@ -489,6 +503,8 @@ importers:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
+
+  packages/self-improvement: {}
 
   packages/ui:
     dependencies:
@@ -520,6 +536,8 @@ importers:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
+
+  packages/workflow-engine: {}
 
 packages:
 

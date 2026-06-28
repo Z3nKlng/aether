@@ -4,7 +4,11 @@
   "description": "Automation workflow engine: create, execute, and schedule workflows with trigger/action/condition/delay/notification steps",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "scripts": { "test": "echo 'no tests'", "typecheck": "tsc --noEmit" },
-  "dependencies": { "@aether/types": "workspace:*" },
-  "publishConfig": { "access": "public" }
+  "scripts": {
+    "test": "echo 'no tests'",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -4,7 +4,11 @@
   "description": "Answers customer questions, resolves issues, manages onboarding, generates help documentation",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "scripts": { "test": "echo 'no tests'", "typecheck": "tsc --noEmit" },
-  "dependencies": { "@aether/types": "workspace:*" },
-  "publishConfig": { "access": "public" }
+  "scripts": {
+    "test": "echo 'no tests'",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

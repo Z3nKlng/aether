@@ -95,7 +95,7 @@ export default function AgentMonitor() {
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-widest">{agent.name}</h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className={`w-2 h-2 rounded-full \${getStatusColor(agent.status)}`} />
+                    <span className={`w-2 h-2 rounded-full ${getStatusColor(agent.status)}`} />
                     <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">{agent.status}</span>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function AgentMonitor() {
                 <p className="text-[10px] text-neutral-500 uppercase font-bold tracking-widest mb-1 flex items-center gap-1">
                   <Layers size={10} /> Queue
                 </p>
-                <p className={`font-mono text-sm \${agent.queue > 0 ? 'text-yellow-500' : 'text-neutral-400'}`}>{agent.queue}</p>
+                <p className={`font-mono text-sm ${agent.queue > 0 ? 'text-yellow-500' : 'text-neutral-400'}`}>{agent.queue}</p>
               </div>
             </div>
 
@@ -199,7 +199,7 @@ export default function AgentMonitor() {
                 </button>
                 <button 
                   onClick={processAction}
-                  className={`flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-colors \${
+                  className={`flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                     confirmAction.type === 'stop' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
                   }`}
                 >

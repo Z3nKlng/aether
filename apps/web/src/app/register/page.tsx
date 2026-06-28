@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { GlassCard, NeonButton, Input, Label } from "@aether/ui";
-import { Github, Mail, Chrome, Disc as Discord, Apple, User, Building2, Link as LinkIcon, Lock } from "lucide-react";
+import { ExternalLink as Github, Mail, Globe as Chrome, Disc as Discord, Apple, User, Building2, Link as LinkIcon, Lock } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 

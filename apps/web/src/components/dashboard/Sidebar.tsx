@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { File, Folder, Search, Settings, Terminal, Github, Plus, ChevronRight, FileCode, FileJson, FileType } from "lucide-react";
+import { File, Folder, Search, Settings, Terminal, GitBranch as Github, Plus, ChevronRight, FileCode, FileJson, FileType } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
