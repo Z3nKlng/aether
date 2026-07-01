@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { GlassCard, NeonButton } from "@aether/ui";
 import Link from "next/link";
 import { ParticleBackground } from "@/components/marketing/ParticleBackground";
@@ -40,13 +40,13 @@ const structuredData = {
   "description": "AI-native autonomous engineering operating system that builds, deploys, and scales software from natural language."
 };
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       damping: 20,
       stiffness: 100,
     },

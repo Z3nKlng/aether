@@ -11,7 +11,7 @@ interface NeonButtonProps {
   type?: "button" | "submit";
   disabled?: boolean;
   loading?: boolean;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "outline" | "default";
   size?: "sm" | "md" | "lg";
   "aria-label"?: string;
 }
@@ -46,6 +46,13 @@ export const NeonButton = ({
           "px-4 py-1.5 border border-white/10 text-neutral-300",
           "hover:border-white/20 hover:text-white",
         ],
+        variant === "outline" && [
+          "px-4 py-2 border border-white/20 text-neutral-400",
+          "hover:border-white/40 hover:text-white",
+        ],
+        variant === "default" && [
+          "px-6 py-2 border border-neon-blue/50 text-neon-blue",
+        ],
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
         size === "lg" && "text-base px-8 py-3",
@@ -55,7 +62,7 @@ export const NeonButton = ({
       {...props}
     >
       {/* Hover glow effect */}
-      <span className={`absolute inset-0 ${variant === "primary" ? "bg-neon-blue/5" : "bg-white/5"} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} aria-hidden="true" />
+      <span className={`absolute inset-0 ${variant === "primary" || variant === "default" ? "bg-neon-blue/5" : "bg-white/5"} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} aria-hidden="true" />
       
       {/* Content */}
       <span className="relative z-10 flex items-center justify-center gap-2">

@@ -88,13 +88,13 @@ export default function OnboardingPage() {
                 <div className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="orgName">Organization Name</Label>
-                    <Input id="orgName" placeholder="Acme Engineering" value={formData.orgName} onChange={(e) => setFormData({...formData, orgName: e.target.value})} />
+                    <Input id="orgName" placeholder="Acme Engineering" value={formData.orgName} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, orgName: e.target.value})} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="orgSlug">Workspace URL</Label>
                     <div className="flex items-center gap-2">
                        <span className="text-sm text-neutral-600 font-mono">aether.sh/</span>
-                       <Input id="orgSlug" placeholder="acme-eng" value={formData.orgSlug} onChange={(e) => setFormData({...formData, orgSlug: e.target.value})} />
+                       <Input id="orgSlug" placeholder="acme-eng" value={formData.orgSlug} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, orgSlug: e.target.value})} />
                     </div>
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default function OnboardingPage() {
                       <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-white/10"></div></div>
                       <div className="relative flex justify-center text-xs uppercase"><span className="bg-black px-4 text-neutral-600 font-mono">Or start blank</span></div>
                    </div>
-                   <Input placeholder="Repository Name (optional)" value={formData.repoName} onChange={(e) => setFormData({...formData, repoName: e.target.value})} />
+                   <Input placeholder="Repository Name (optional)" value={formData.repoName} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, repoName: e.target.value})} />
                 </div>
 
                 <div className="flex gap-4">

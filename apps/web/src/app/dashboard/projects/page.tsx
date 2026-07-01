@@ -6,7 +6,15 @@ import { motion } from "framer-motion";
 import { Rocket, Plus, ExternalLink, Calendar, GitBranch } from "lucide-react";
 import Link from "next/link";
 
-const mockProjects = [
+interface Project {
+  id: string;
+  name: string;
+  slug: string;
+  updatedAt: string;
+  deployments: { status: string; url: string }[];
+}
+
+const mockProjects: Project[] = [
   { id: "1", name: "E-Commerce App", slug: "ecommerce-app", updatedAt: new Date().toISOString(), deployments: [{ status: "live", url: "https://ecommerce-app.vercel.app" }] },
   { id: "2", name: "API Dashboard", slug: "api-dashboard", updatedAt: new Date().toISOString(), deployments: [{ status: "preview", url: "https://api-dashboard.vercel.app" }] },
   { id: "3", name: "Mobile Backend", slug: "mobile-backend", updatedAt: new Date().toISOString(), deployments: [{ status: "building", url: "" }] },
@@ -16,7 +24,7 @@ export default function ProjectsPage() {
   const api = useApi();
 
   // Use Query will fetch from real API when ready
-  const { data: projects, isLoading } = useQuery({
+  const { data: projects, isLoading } = useQuery<Project[]>({
     queryKey: ["projects"],
     queryFn: async () => {
       // For now, return mock data or try to fetch
@@ -57,7 +65,7 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
+        {projects!.map((project: Project, index) => (
           <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
