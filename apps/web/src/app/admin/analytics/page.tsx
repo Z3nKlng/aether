@@ -76,7 +76,7 @@ export default function AnalyticsPage() {
               type="text" 
               placeholder="Search logs, events, or actors..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
               className="w-full bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-red-600/50 transition-colors"
             />
           </div>

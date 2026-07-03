@@ -49,7 +49,7 @@ export default function RegisterPage() {
                   placeholder="John Doe" 
                   required 
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, name: e.target.value})}
                 />
               </div>
               <div className="space-y-2">
@@ -62,7 +62,7 @@ export default function RegisterPage() {
                   placeholder="john@company.com" 
                   required 
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, email: e.target.value})}
                 />
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function RegisterPage() {
                 placeholder="••••••••" 
                 required 
                 value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, password: e.target.value})}
               />
             </div>
 
@@ -92,7 +92,7 @@ export default function RegisterPage() {
                     placeholder="Acme Inc" 
                     required 
                     value={formData.orgName}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                       const slug = e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                       setFormData({...formData, orgName: e.target.value, orgSlug: slug});
                     }}
@@ -110,7 +110,7 @@ export default function RegisterPage() {
                       placeholder="acme-inc" 
                       required 
                       value={formData.orgSlug}
-                      onChange={(e) => setFormData({...formData, orgSlug: e.target.value})}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, orgSlug: e.target.value})}
                     />
                   </div>
                 </div>

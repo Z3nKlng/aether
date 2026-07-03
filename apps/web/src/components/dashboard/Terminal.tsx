@@ -124,7 +124,7 @@ export const Terminal = () => {
                 ref={inputRef}
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="w-full bg-transparent border-none outline-none text-white caret-neon-blue"
                 aria-label="Terminal input"
