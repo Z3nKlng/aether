@@ -1,4 +1,4 @@
-import { createClient, Client } from './generated';
+import { createClient, AetherClient as Client } from './generated';
 
 export * from './generated';
 
