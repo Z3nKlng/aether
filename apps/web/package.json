@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@aether/api-client": "workspace:*",
     "@aether/ui": "workspace:*",
     "@aether/auth": "workspace:*",
     "@aether/bi": "workspace:*",

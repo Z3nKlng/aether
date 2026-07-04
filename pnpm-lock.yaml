@@ -150,6 +150,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@aether/api-client':
+        specifier: workspace:*
+        version: link:../../packages/api-client
       '@aether/auth':
         specifier: workspace:*
         version: link:../../packages/auth

@@ -18,15 +18,15 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -10 },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: i * 0.02, type: "spring", damping: 25, stiffness: 200 },
+    transition: { delay: i * 0.02, type: "spring" as const, damping: 25, stiffness: 200 },
   }),
 };
 

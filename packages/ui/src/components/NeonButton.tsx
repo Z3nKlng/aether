@@ -11,7 +11,7 @@ interface NeonButtonProps {
   type?: "button" | "submit";
   disabled?: boolean;
   loading?: boolean;
-  variant?: "primary" | "secondary" | "outline" | "default";
+  variant?: "primary" | "secondary" | "outline" | "default" | "ghost";
   size?: "sm" | "md" | "lg";
   "aria-label"?: string;
 }
@@ -52,6 +52,9 @@ export const NeonButton = ({
         ],
         variant === "default" && [
           "px-6 py-2 border border-neon-blue/50 text-neon-blue",
+        ],
+        variant === "ghost" && [
+          "px-4 py-1.5 text-neutral-400 hover:text-white",
         ],
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
