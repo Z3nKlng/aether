@@ -1,6 +1,7 @@
 import React from "react";
 import { Search } from "lucide-react";
-import { GlassCard, NeonButton } from "@aether/ui";
+import { GlassCard } from "./GlassCard";
+import { NeonButton } from "./NeonButton";
 
 interface EmptyStateProps {
   title: string;

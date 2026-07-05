@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { NeonButton } from "@aether/ui";
+import { NeonButton } from "./NeonButton";
 import { Home, AlertTriangle } from "lucide-react";
 
 export const NotFound = () => {
@@ -24,12 +23,12 @@ export const NotFound = () => {
           </p>
         </div>
 
-        <Link href="/dashboard" className="inline-block">
+        <a href="/dashboard" className="inline-block">
           <NeonButton className="px-8 py-4">
             <Home className="w-4 h-4 mr-2" />
             Back to Mission Control
           </NeonButton>
-        </Link>
+        </a>
       </div>
 
       {/* Grid Pattern overlay */}

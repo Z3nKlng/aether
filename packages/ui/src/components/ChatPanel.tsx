@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { GlassCard, NeonButton, Input } from "@aether/ui";
+import { GlassCard } from "./GlassCard";
+import { NeonButton } from "./NeonButton";
+import { Input } from "./Input";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, User, Bot, Sparkles, X, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "../utils";
