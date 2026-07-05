@@ -10,7 +10,7 @@ import { Role } from "./src/rbac";
 export * from "./src/rbac";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma as any),
   providers: [
     GitHub({
       clientId: process.env.AUTH_GITHUB_ID,

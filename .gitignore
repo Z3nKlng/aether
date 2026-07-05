@@ -8,6 +8,7 @@ dist/
 .env.test.local
 .env.production.local
 *.log
+**/src/generated/
 .cache/
 coverage/
 .next
