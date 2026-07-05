@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "main": "./index.ts",
   "types": "./index.ts",
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "scripts": {
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
+    "generate": "prisma generate",
+    "postinstall": "prisma generate",
     "typecheck": "true",
     "lint": "true"
   },
