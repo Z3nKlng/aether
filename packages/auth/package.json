@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "@aether/database": "workspace:*",
-    "next-auth": "5.0.0-beta.25",
     "@auth/prisma-adapter": "^2.11.2",
+    "next-auth": "5.0.0-beta.31",
     "nodemailer": "^8.0.9"
   },
   "devDependencies": {
-    "typescript": "^6.0.3",
-    "@types/nodemailer": "^6.4.17"
+    "@types/nodemailer": "^6.4.17",
+    "typescript": "^6.0.3"
   }
 }

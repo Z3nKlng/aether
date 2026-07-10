@@ -18,10 +18,6 @@ const nextConfig: NextConfig = {
     "@aether/billing",
     "@aether/ci-cd",
   ],
-  devIndicators: {
-    appIsrStatus: false,
-    buildActivity: false,
-  },
+  devIndicators: false,
 };
-
 export default nextConfig;
