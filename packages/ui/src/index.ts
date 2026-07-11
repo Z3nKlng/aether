@@ -7,6 +7,7 @@ export * from "./components/ErrorState";
 export * from "./components/EmptyState";
 export * from "./components/LoadingState";
 export * from "./components/NotFound";
+export * from "./components/Skeleton";
 export * from "./components/Presence";
 export * from "./components/LiveCursor";
 export * from "./components/ChatPanel";
